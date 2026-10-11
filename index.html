@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Campus Connect is a simple student hub for campus events, study reminders, and student feedback.">
+  <title>Campus Connect | Student Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="#home" aria-label="Campus Connect home">
+        <span class="brand-mark" aria-hidden="true">CC</span>
+        <span>Campus Connect</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#planner">Study Planner</a></li>
+          <li><a href="#feedback">Feedback</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">YOUR CAMPUS, CONNECTED</p>
+          <h1>Make your campus days <span>count.</span></h1>
+          <p class="hero-description">
+            Find student events, keep track of study tasks, and share ideas to make campus life better.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#events">Explore events</a>
+            <a class="button button-secondary" href="#planner">Plan your study</a>
+          </div>
+          <p class="small-note">A student project demonstrating HTML, CSS, and JavaScript concepts.</p>
+        </div>
+        <div class="hero-panel" aria-label="Campus Connect highlights">
+          <div class="panel-topline"><span class="status-dot"></span> YOUR STUDENT HUB</div>
+          <div class="hero-icon" aria-hidden="true">✦</div>
+          <h2>One place to get organised</h2>
+          <p>Discover opportunities. Plan your week. Make your voice heard.</p>
+          <div class="mini-stats">
+            <div><strong>03</strong><span>Sample events</span></div>
+            <div><strong>24/7</strong><span>Study planning</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="events">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">WHAT'S HAPPENING</p>
+            <h2>Campus events</h2>
+          </div>
+          <p class="section-intro">A few sample activities to help you stay involved.</p>
+        </div>
+
+        <div class="event-grid">
+          <article class="event-card">
+            <div class="event-art event-art-blue" aria-hidden="true"><span>01</span><span class="art-symbol">◈</span></div>
+            <div class="event-body">
+              <p class="event-type">COMMUNITY</p>
+              <h3>Student Town Hall</h3>
+              <p>Meet other students and discuss ideas for improving campus life.</p>
+              <div class="event-meta"><span>📅 Friday</span><span>📍 Main Hall</span></div>
+              <a class="text-link" href="#feedback">Share an idea <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-art event-art-gold" aria-hidden="true"><span>02</span><span class="art-symbol">✳</span></div>
+            <div class="event-body">
+              <p class="event-type">LEARNING</p>
+              <h3>Study Group Meetup</h3>
+              <p>Work together, compare notes, and prepare for upcoming assessments.</p>
+              <div class="event-meta"><span>📅 Wednesday</span><span>📍 Learning Commons</span></div>
+              <a class="text-link" href="#planner">Plan study time <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-art event-art-green" aria-hidden="true"><span>03</span><span class="art-symbol">⌘</span></div>
+            <div class="event-body">
+              <p class="event-type">CAREERS</p>
+              <h3>Career Skills Session</h3>
+              <p>Explore practical tips for teamwork, communication, and interviews.</p>
+              <div class="event-meta"><span>📅 Monday</span><span>📍 Innovation Lab</span></div>
+              <a class="text-link" href="#feedback">Ask a question <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+        <p class="disclaimer">Note: These are sample events created for this project, not official campus announcements.</p>
+      </div>
+    </section>
+
+    <section class="section planner-section" id="planner">
+      <div class="container planner-grid">
+        <div>
+          <p class="eyebrow">SMALL STEPS, BIG PROGRESS</p>
+          <h2>Your study planner</h2>
+          <p class="section-intro">Add a task you want to remember. Tasks are saved in this browser using local storage, so you can return to them later on the same device.</p>
+          <div class="tip-box">
+            <span class="tip-icon" aria-hidden="true">✓</span>
+            <div><strong>Study tip</strong><p>Break a large assignment into smaller tasks and give each one a clear next step.</p></div>
+          </div>
+        </div>
+
+        <div class="planner-card">
+          <div class="planner-card-heading">
+            <div><p class="eyebrow">MY TASKS</p><h3>Things to work on</h3></div>
+            <span class="task-count" id="task-count">0 tasks</span>
+          </div>
+          <form id="task-form">
+            <label for="task-input">New study task</label>
+            <div class="task-entry">
+              <input id="task-input" name="task" type="text" placeholder="e.g. Review CSS notes" maxlength="100" required>
+              <button class="button button-primary add-button" type="submit">Add</button>
+            </div>
+            <p class="form-hint">Keep each task short and specific.</p>
+          </form>
+          <ul class="task-list" id="task-list" aria-live="polite">
+            <li class="empty-state" id="empty-state">No tasks yet. Add your first study task above.</li>
+          </ul>
+          <button class="clear-button" id="clear-completed" type="button">Clear completed tasks</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section feedback-section" id="feedback">
+      <div class="container feedback-grid">
+        <div>
+          <p class="eyebrow">YOUR VOICE MATTERS</p>
+          <h2>Send us your feedback</h2>
+          <p class="section-intro">Have an idea for a campus activity or student resource? Use this sample form to share it.</p>
+          <ul class="benefit-list">
+            <li><span aria-hidden="true">✓</span> Suggest a new student activity</li>
+            <li><span aria-hidden="true">✓</span> Share a useful resource idea</li>
+            <li><span aria-hidden="true">✓</span> Tell us what could improve</li>
+          </ul>
+        </div>
+
+        <form class="feedback-card" id="feedback-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="student-name">Your name</label>
+              <input id="student-name" name="studentName" type="text" autocomplete="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-field">
+              <label for="student-email">Email address</label>
+              <input id="student-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="feedback-topic">Feedback topic</label>
+            <select id="feedback-topic" name="topic" required>
+              <option value="">Choose a topic</option>
+              <option value="events">Campus events</option>
+              <option value="study">Study resources</option>
+              <option value="wellbeing">Student wellbeing</option>
+              <option value="other">Other idea</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="feedback-message">Your message</label>
+            <textarea id="feedback-message" name="message" rows="4" maxlength="500" placeholder="Share your idea in a few sentences..." required></textarea>
+            <p class="form-hint">Maximum 500 characters.</p>
+          </div>
+          <button class="button button-primary submit-button" type="submit">Submit feedback</button>
+          <p class="form-message" id="feedback-message-status" role="status" aria-live="polite"></p>
+          <p class="disclaimer">This demo shows a confirmation in your browser. It does not send or store feedback on a server.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">CC</span><span>Campus Connect</span></a>
+      <p>Created as a Web Technology synthetic project covering Lessons 1–7.</p>
+      <a href="#home" class="back-top">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
